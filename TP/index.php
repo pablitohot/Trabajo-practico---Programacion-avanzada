@@ -1,70 +1,86 @@
-<?php 
-session_start(); 
+<?php
+session_start();
+
+$tituloPagina = 'Catálogo | MichiMarket';
+require_once 'php/header.php';
+
+$gatos = [
+    [
+        'nombre' => 'Mochi',
+        'raza' => 'Persa',
+        'edad' => '2 años',
+        'precio' => 18000,
+        'descripcion' => 'Tranquilo, mimoso y experto en siestas al sol.',
+        'imagen' => 'img/gato-mochi.svg'
+    ],
+    [
+        'nombre' => 'Luna',
+        'raza' => 'Siamés',
+        'edad' => '1 año',
+        'precio' => 22000,
+        'descripcion' => 'Curiosa, conversadora y muy apegada a su humano.',
+        'imagen' => 'img/gato-luna.svg'
+    ],
+    [
+        'nombre' => 'Tomás',
+        'raza' => 'Naranja común',
+        'edad' => '3 años',
+        'precio' => 12000,
+        'descripcion' => 'Juguetón, valiente y con una sola neurona, pero de oro.',
+        'imagen' => 'img/gato-tomas.svg'
+    ],
+    [
+        'nombre' => 'Nube',
+        'raza' => 'Blanco europeo',
+        'edad' => '8 meses',
+        'precio' => 15000,
+        'descripcion' => 'Suave como una nube y fanático de las cajas de cartón.',
+        'imagen' => 'img/gato-nube.svg'
+    ],
+    [
+        'nombre' => 'Copito',
+        'raza' => 'Ragdoll',
+        'edad' => '2 años',
+        'precio' => 25000,
+        'descripcion' => 'Se derrite en los brazos y ronronea sin parar.',
+        'imagen' => 'img/gato-copito.svg'
+    ],
+    [
+        'nombre' => 'Misha',
+        'raza' => 'Carey',
+        'edad' => '4 años',
+        'precio' => 14000,
+        'descripcion' => 'Independiente, elegante y reina indiscutida del sillón.',
+        'imagen' => 'img/gato-misha.svg'
+    ],
+];
 ?>
+    <section class="hero-catalogo container">
+      <h1>Encontrá a tu próximo michi</h1>
+      <p class="text-muted mb-0">Gatitos listos para adopción responsable. Precio de seña a cargo del refugio.</p>
+    </section>
 
-<!doctype html>
-<html lang="es">
-
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <style>
-      body {
-        /* Reemplaza con la ruta real de tu imagen */
-        background-image: url('img/Maxwell-2.jpg'); 
-        background-repeat: repeat;
-        background-position: 0 0;
-        
-        /* 40s define la duración. Auméntalo para que sea más lento */
-        animation: moverFondo 40s linear infinite; 
-      }
-
-      @keyframes moverFondo {
-        from {
-          background-position: 0 0;
-        }
-        to {
-          /* Mueve el fondo hacia la izquierda. 
-            Para que el reinicio no se note, el valor en px (1000px) debe coincidir con el ancho de tu imagen. */
-          background-position: -1000px 0; 
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  
-    <nav class="navbar navbar-expand-lg bg-primary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img src="img/logo.png" alt="Logo Marketplace" width="50" height="50" class="d-inline-block align-text-top">
-        </a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-            </li>
-          </ul>
-          
-          <div class="d-flex align-items-center">
-            <?php if (isset($_SESSION['usuario'])): ?>
-              <span class="text-light fw-bold me-3">
-                <?php echo htmlspecialchars($_SESSION['usuario']); ?>
-              </span>
-              <a href="logout.php" class="btn btn-outline-light btn-sm">Salir</a>
-            <?php else: ?>
-              <a href="login.php" class="btn btn-light">Login</a>
-            <?php endif; ?>
+    <section class="container py-4">
+      <div class="row g-4">
+        <?php foreach ($gatos as $gato): ?>
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card-gato">
+              <img src="<?php echo htmlspecialchars($gato['imagen']); ?>" alt="Foto de <?php echo htmlspecialchars($gato['nombre']); ?>">
+              <div class="p-3">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <h2 class="h4 mb-0"><?php echo htmlspecialchars($gato['nombre']); ?></h2>
+                  <span class="badge badge-raza"><?php echo htmlspecialchars($gato['raza']); ?></span>
+                </div>
+                <p class="text-muted mb-2"><?php echo htmlspecialchars($gato['edad']); ?></p>
+                <p><?php echo htmlspecialchars($gato['descripcion']); ?></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p class="precio-gato">$<?php echo number_format($gato['precio'], 0, ',', '.'); ?></p>
+                  <button type="button" class="btn btn-michi btn-sm">Adoptar</button>
+                </div>
+              </div>
+            </article>
           </div>
-
-        </div>
+        <?php endforeach; ?>
       </div>
-    </nav>
-  
-  </body>
-
-</html>
+    </section>
+<?php require_once 'php/footer.php'; ?>

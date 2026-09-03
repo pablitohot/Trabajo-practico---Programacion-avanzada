@@ -1,0 +1,7 @@
+Grupo: MichiMarket
+Materia: Programación Avanzada
+Facultad: FCyT - UADER
+
+Integrantes:
+- Completar: Apellido, Nombre
+- Completar: Apellido, Nombre

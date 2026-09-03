@@ -1,0 +1,249 @@
+:root {
+  --michi-naranja: #d46a3a;
+  --michi-naranja-oscuro: #b45328;
+  --michi-crema: #fff6ee;
+  --michi-card: #fffdfb;
+  --michi-marron: #3d2a22;
+  --michi-texto: #4a342b;
+  --michi-suave: #f4d3b8;
+  --michi-verde: #6f9b7a;
+  --michi-sombra: 0 12px 30px rgba(61, 42, 34, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  color: var(--michi-texto);
+  background-color: var(--michi-crema);
+  background-image:
+    radial-gradient(circle at 12px 8px, rgba(212, 106, 58, 0.12) 3px, transparent 4px),
+    radial-gradient(circle at 20px 18px, rgba(212, 106, 58, 0.12) 2px, transparent 3px),
+    radial-gradient(circle at 6px 18px, rgba(212, 106, 58, 0.12) 2px, transparent 3px);
+  background-size: 42px 42px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+h1, h2, h3, .navbar-brand span, .footer-titulo {
+  font-family: "Fredoka", sans-serif;
+}
+
+.navbar-michi {
+  background: linear-gradient(90deg, #3d2a22 0%, #5a3b30 100%);
+  padding: 0.7rem 0;
+  box-shadow: 0 4px 16px rgba(61, 42, 34, 0.25);
+}
+
+.logo-michi {
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+}
+
+.navbar-michi .navbar-brand {
+  color: #fff8f2;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.navbar-michi .navbar-brand:hover,
+.navbar-michi .nav-link,
+.navbar-michi .nav-link:hover,
+.navbar-michi .nav-link.active {
+  color: #fff8f2;
+}
+
+.navbar-michi .nav-link {
+  font-weight: 700;
+  padding: 0.4rem 0.9rem !important;
+  border-radius: 999px;
+}
+
+.navbar-michi .nav-link.active {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.navbar-michi .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.navbar-michi .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+.usuario-sesion {
+  color: #fff8f2;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+}
+
+.btn-michi {
+  background-color: var(--michi-naranja);
+  border: none;
+  color: #fff;
+  font-weight: 800;
+  border-radius: 12px;
+}
+
+.btn-michi:hover,
+.btn-michi:focus {
+  background-color: var(--michi-naranja-oscuro);
+  color: #fff;
+}
+
+.btn-michi:disabled {
+  background-color: #e3c4b3;
+  color: #fff;
+}
+
+.btn-michi-outline {
+  border: 2px solid #fff8f2;
+  color: #fff8f2;
+  font-weight: 700;
+  border-radius: 999px;
+}
+
+.btn-michi-outline:hover {
+  background: #fff8f2;
+  color: var(--michi-marron);
+}
+
+.login-wrap {
+  min-height: calc(100vh - 170px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.login-card,
+.mensaje-card {
+  background: var(--michi-card);
+  border: 0;
+  border-radius: 24px;
+  box-shadow: var(--michi-sombra);
+  max-width: 430px;
+  width: 100%;
+  padding: 2rem;
+}
+
+.login-kicker {
+  color: var(--michi-naranja);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.form-michi .form-control {
+  border: 2px solid #f0d8c6;
+  border-radius: 14px;
+  padding: 0.8rem 1rem;
+  background: #fff;
+}
+
+.form-michi .form-control:focus {
+  border-color: var(--michi-naranja);
+  box-shadow: 0 0 0 0.2rem rgba(212, 106, 58, 0.18);
+}
+
+.form-michi label {
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.alerta-error {
+  background: #fde8e4;
+  color: #9a3412;
+  border: 1px solid #f7c4b8;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero-catalogo {
+  padding: 2.5rem 0 1rem;
+}
+
+.hero-catalogo h1 {
+  font-size: 2.2rem;
+  color: var(--michi-marron);
+}
+
+.card-gato {
+  background: var(--michi-card);
+  border: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--michi-sombra);
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-gato:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(61, 42, 34, 0.16);
+}
+
+.card-gato img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: #ffe8d6;
+}
+
+.badge-raza {
+  background: var(--michi-suave);
+  color: var(--michi-marron);
+  font-weight: 800;
+  border-radius: 999px;
+}
+
+.precio-gato {
+  color: var(--michi-naranja);
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.mensaje-page {
+  min-height: calc(100vh - 170px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.mensaje-ok {
+  color: var(--michi-verde);
+}
+
+.footer-michi {
+  background: #3d2a22;
+  color: #f7e6d8;
+  padding: 1.5rem 0;
+  margin-top: auto;
+  font-size: 0.95rem;
+}
+
+.footer-titulo {
+  font-size: 1.15rem;
+  color: #fff;
+}
