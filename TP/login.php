@@ -6,6 +6,28 @@
   <title>Login</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link href="style.css" rel="stylesheet">
+  <style>
+      body {
+        /* Reemplaza con la ruta real de tu imagen */
+        background-image: url('img/Maxwell-2.jpg'); 
+        background-repeat: repeat;
+        background-position: 0 0;
+        
+        /* 40s define la duración. Auméntalo para que sea más lento */
+        animation: moverFondo 40s linear infinite; 
+      }
+
+      @keyframes moverFondo {
+        from {
+          background-position: 0 0;
+        }
+        to {
+          /* Mueve el fondo hacia la izquierda. 
+            Para que el reinicio no se note, el valor en px (1000px) debe coincidir con el ancho de tu imagen. */
+          background-position: -1000px 0; 
+        }
+      }
+    </style>
 </head>
 
 <body>
@@ -29,7 +51,7 @@
 
 
   <!-- Contenedor para centrar la caja en toda la pantalla (vh-100) y dar color de fondo -->
-  <div class="d-flex justify-content-center align-items-center vh-100" style="background-color: #f4f7fc;">
+  <div class="d-flex justify-content-center align-items-center vh-100">
 
     <!-- Caja del Login (Card con sombra y bordes redondeados) -->
     <div class="card shadow-sm border-0 p-4 rounded-4" style="max-width: 420px; width: 100%;">
